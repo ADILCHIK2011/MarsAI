@@ -1,0 +1,463 @@
+# Hermes static-message catalog -- O'zbek tili (Safia Cake & Bakery loyihasi uchun qo'shildi)
+#
+# Only user-facing static messages from the CLI approval prompt and a handful
+# of gateway slash-command replies live here.  Agent-generated output, log
+# lines, error tracebacks, tool outputs, and slash-command descriptions stay
+# in English and are NOT translated -- see agent/i18n.py for scope rationale.
+
+approval:
+  dangerous_header: "⚠️  XAVFLI BUYRUQ: {description}"
+  choose_long:     "      [b]ir marta  |  [s]essiya uchun  |  [h]ar doim  |  [r]ad etish"
+  choose_short:    "      [b]ir marta  |  [s]essiya uchun  |  [r]ad etish"
+  prompt_long:     "      Tanlov [b/s/h/R]: "
+  prompt_short:    "      Tanlov [b/s/R]: "
+  choose_smart_deny: "      [b]ir marta  |  [r]ad etish"
+  prompt_smart_deny: "      Tanlov [b/R]: "
+  smart_deny_once_inputs: "b,bir marta"
+  smart_deny_deny_inputs: "r,rad etish"
+  timeout:         "      ⏱ Vaqt tugadi - buyruq rad etildi"
+  allowed_once:    "      ✓ Bir marta ruxsat berildi"
+  allowed_session: "      ✓ Ushbu sessiya uchun ruxsat berildi"
+  allowed_always:  "      ✓ Doimiy ro'yxatga qo'shildi"
+  denied:          "      ✗ Rad etildi"
+  cancelled:       "      ✗ Bekor qilindi"
+  blocklist_message: "Bu buyruq taqiqlangan ro'yxatda va uni tasdiqlab bo'lmaydi."
+
+gateway:
+  approval_expired: "⚠️ Tasdiqlash muddati tugadi (agent kutmayapti). Agentdan qayta urinishni so'rang."
+  draining:         "⏳ Qayta ishga tushirishdan oldin {count} ta faol agent yakunlanmoqda..."
+  goal_cleared:     "✓ Maqsad tozalandi."
+  no_active_goal:   "Faol maqsad yo'q."
+  config_read_failed: "⚠️ config.yaml o'qib bo'lmadi: {error}"
+  config_save_failed: "⚠️ Sozlamalarni saqlab bo'lmadi: {error}"
+
+  model:
+    error_prefix:           "Xato: {error}"
+    switched:               "Model `{model}` ga almashtirildi"
+    provider_label:         "Provayder: {provider}"
+    context_label:          "Kontekst: {tokens} token"
+    max_output_label:       "Maksimal chiqish: {tokens} token"
+    cost_label:             "Narx: {cost}"
+    capabilities_label:     "Imkoniyatlar: {capabilities}"
+    prompt_caching_enabled: "Promptni keshlash: yoqilgan"
+    warning_prefix:         "Ogohlantirish: {warning}"
+    saved_global:           "config.yaml ga saqlandi (`--global`)"
+    session_only_hint:      "_(faqat shu sessiya uchun — doimiy saqlash uchun `--global` qo'shing)_"
+    current_label:          "Joriy: `{model}` ({provider} orqali)"
+    current_tag:            " (joriy)"
+    more_models_suffix:     " (+{count} ta yana)"
+    usage_switch_model:     "`/model <nomi>` — modelni almashtirish"
+    usage_switch_provider:  "`/model <nomi> --provider <slug>` — provayderni almashtirish"
+    usage_persist:          "`/model <nomi> --global` — doimiy saqlash"
+
+  agents:
+    header:                "🤖 **Faol Agentlar va Vazifalar**"
+    active_agents:         "**Faol agentlar:** {count}"
+    this_chat:             " · shu chat"
+    more:                  "... va yana {count} ta"
+    running_processes:     "**Ishlayotgan fon jarayonlari:** {count}"
+    async_jobs:            "**Gateway fon vazifalari:** {count}"
+    background_delegations: "**Fon topshiriqlari:** {count}"
+    none:                  "Faol agent yoki ishlayotgan vazifa yo'q."
+    state_starting:        "boshlanmoqda"
+    state_running:         "ishlamoqda"
+
+  approve:
+    no_pending:            "Tasdiqlash kutayotgan buyruq yo'q."
+    once_singular:         "✅ Buyruq tasdiqlandi. Agent davom etmoqda..."
+    once_plural:           "✅ Buyruqlar tasdiqlandi ({count} ta). Agent davom etmoqda..."
+    session_singular:      "✅ Buyruq tasdiqlandi (naqsh shu sessiya uchun tasdiqlandi). Agent davom etmoqda..."
+    session_plural:        "✅ Buyruqlar tasdiqlandi (naqsh shu sessiya uchun tasdiqlandi) ({count} ta). Agent davom etmoqda..."
+    always_singular:       "✅ Buyruq tasdiqlandi (naqsh doimiy tasdiqlandi). Agent davom etmoqda..."
+    always_plural:         "✅ Buyruqlar tasdiqlandi (naqsh doimiy tasdiqlandi) ({count} ta). Agent davom etmoqda..."
+
+  background:
+    usage:                 "Foydalanish: /bg <prompt>\nMisol: /bg Bugungi eng muhim yangiliklarni qisqacha ayting\n\nPromptni alohida sessiyada ishga tushiradi. Siz suhbatni davom ettirishingiz mumkin — natija tayyor bo'lganda shu yerda ko'rinadi."
+    started:               "🔄 Fon vazifasi boshlandi: \"{preview}\"\nVazifa ID: {task_id}\nSuhbatni davom ettirishingiz mumkin — natija tayyor bo'lganda ko'rinadi."
+
+  btw:
+    usage:                 "Foydalanish: /btw <savol>\nMisol: /btw bu xato qaysi faylda edi?\n\nUshbu suhbatni to'xtatmasdan tezkor yon savolga javob beradi. Mustaqil fon vazifasi uchun /bg <prompt> dan foydalaning."
+    no_history:            "Hali suhbat yo'q — savolingizni oddiy xabar sifatida yuboring."
+    no_provider:           "❌ Yon savolga javob berib bo'lmaydi: provayder ma'lumotlari sozlanmagan."
+    started:               "💬 Yon savol: \"{preview}\"\nUshbu suhbatning saqlangan holatidan javob berilmoqda — asosiy ish davom etmoqda."
+    answer:                "💬 /btw: \"{preview}\"\n\n{answer}"
+    failed:                "❌ /btw amalga oshmadi: \"{preview}\"\n{error}"
+
+  branch:
+    db_unavailable:        "Sessiya bazasi mavjud emas."
+    no_conversation:       "Tarmoqlash uchun suhbat yo'q — avval xabar yuboring."
+    create_failed:         "Tarmoq yaratib bo'lmadi: {error}"
+    switch_failed:         "Tarmoq yaratildi, lekin unga o'tib bo'lmadi."
+    branched_one:          "⑂ **{title}** ga tarmoqlandi ({count} ta xabar nusxalandi)\nAsl: `{parent}`\nTarmoq: `{new}`\nAslgа qaytish uchun `/resume` dan foydalaning."
+    branched_many:         "⑂ **{title}** ga tarmoqlandi ({count} ta xabar nusxalandi)\nAsl: `{parent}`\nTarmoq: `{new}`\nAslgа qaytish uchun `/resume` dan foydalaning."
+
+  commands:
+    usage:                 "Foydalanish: `/commands [sahifa]`"
+    skill_header:          "⚡ **Ko'nikma buyruqlari**:"
+    default_desc:          "Ko'nikma buyrug'i"
+    none:                  "Mavjud buyruqlar yo'q."
+    header:                "📚 **Buyruqlar** (jami {total}, sahifa {page}/{total_pages})"
+    nav_prev:              "`/commands {page}` ← oldingi"
+    nav_next:              "keyingi → `/commands {page}`"
+    out_of_range:          "_(So'ralgan {requested}-sahifa mavjud emas, {page}-sahifa ko'rsatilmoqda.)_"
+
+  compress:
+    not_enough:            "Siqish uchun suhbat yetarli emas (kamida 4 ta xabar kerak)."
+    no_provider:           "Provayder sozlanmagan — siqib bo'lmaydi."
+    nothing_to_do:         "Hozircha siqish uchun hech narsa yo'q (transkript hali to'liq himoyalangan kontekst)."
+    aggressive_unsupported: "--aggressive qo'llab-quvvatlanmaydi; faqat so'nggi almashinuvlarni saqlash uchun '/compress here [N]' dan, yoki navbatlarni olib tashlash uchun /undo dan foydalaning."
+    focus_line:            "Fokus: \"{topic}\""
+    summary_failed:        "⚠️ Xulosa yaratish amalga oshmadi ({error}). {count} ta tarixiy xabar olib tashlandi va o'rniga belgi qo'yildi; oldingi kontekstni tiklab bo'lmaydi. auxiliary.compression model sozlamasini tekshirib ko'ring."
+    aborted:               "⚠️ Siqish to'xtatildi ({error}). Hech qanday xabar olib tashlanmadi — suhbat o'zgarishsiz qoldi. Qayta urinish uchun /compress, toza sessiya uchun /reset, yoki auxiliary.compression model sozlamasini tekshiring."
+    aux_failed:            "ℹ️ Sozlangan siqish modeli `{model}` amalga oshmadi ({error}). Asosiy model orqali tiklandi — kontekst saqlanib qoldi — lekin config.yaml dagi `auxiliary.compression.model` ni tekshirib ko'rishingiz mumkin."
+    turnhold_deferred:     "ℹ️ Kontekstni siqish kechiktirildi — xulosa hali oqim tarzida yozilmoqda. Shu navbat siqishsiz davom etadi."
+    failed:                "Siqish amalga oshmadi: {error}"
+
+  debug:
+    upload_failed:         "✗ Diagnostika hisobotini yuklab bo'lmadi: {error}"
+    header:                "**Diagnostika hisoboti yuklandi:**"
+    auto_delete:           "⏱ Havolalar 6 soatdan so'ng avtomatik o'chiriladi."
+    full_logs_hint:        "To'liq jurnal yuklash uchun terminalda `hermes debug share` dan foydalaning."
+    share_hint:            "Ushbu havolalarni Hermes jamoasi bilan yordam uchun ulashing."
+
+  deny:
+    stale:                 "❌ Buyruq rad etildi (tasdiqlash muddati eskirgan)."
+    no_pending:            "Rad etish uchun kutayotgan buyruq yo'q."
+    denied_singular:       "❌ Buyruq rad etildi."
+    denied_plural:         "❌ Buyruqlar rad etildi ({count} ta)."
+    denied_reason_singular: "❌ Buyruq rad etildi. Sabab agentga yetkazildi: \"{reason}\""
+    denied_reason_plural:  "❌ Buyruqlar rad etildi ({count} ta). Sabab agentga yetkazildi: \"{reason}\""
+
+  fast:
+    not_supported:         "⚡ /fast faqat Priority Processing'ni qo'llab-quvvatlaydigan OpenAI modellari uchun mavjud."
+    status:                "⚡ Priority Processing\n\nJoriy rejim: `{mode}`\n\n_Foydalanish:_ `/fast <normal|fast|auto|cold|status>`"
+    unknown_arg:           "⚠️ Noma'lum argument: `{arg}`\n\n**To'g'ri variantlar:** normal, fast, auto, cold, status"
+    saved:                 "⚡ ✓ Priority Processing: **{label}** (sozlamalarga saqlandi)\n_(keyingi xabardan kuchga kiradi)_"
+    session_only:          "⚡ ✓ Priority Processing: **{label}** (faqat shu sessiya uchun)"
+    label_fast:            "TEZ"
+    label_normal:          "ODDIY"
+    status_fast:           "tez"
+    status_normal:         "oddiy"
+    picker_title:          "⚡ **Priority Processing**\n\nJoriy rejim: `{mode}`\n\nBirini tanlang:"
+    choice_fast:           "fast — Priority Processing yoqilgan"
+    choice_normal:         "normal — standart ishlov berish"
+    choice_auto:           "auto — har navbatning dastlabki soniyalarida tez"
+    choice_cold:           "cold — faqat sessiyaning birinchi navbatida tez"
+
+  footer:
+    status:                "📎 Ishga tushirish qatori: **{state}**\nMaydonlar: `{fields}`\nPlatforma: `{platform}`"
+    usage:                 "Foydalanish: `/footer [on|off|status]`"
+    saved:                 "📎 Ishga tushirish qatori: **{state}**{example}\n_(global saqlandi — keyingi xabardan kuchga kiradi)_"
+    example_line:          "\nMisol: `{preview}`"
+    state_on:              "YOQILGAN"
+    state_off:             "O'CHIRILGAN"
+
+  goal:
+    unavailable:           "Bu sessiyada maqsadlar mavjud emas."
+    no_goal_set:           "Maqsad belgilanmagan."
+    paused:                "⏸ Maqsad to'xtatildi: {goal}"
+    no_resume:             "Davom ettirish uchun maqsad yo'q."
+    resumed:               "▶ Maqsad davom ettirildi: {goal}\nHozir davom etmoqda — keyingi qadamni darhol bajaraman."
+    invalid:               "Noto'g'ri maqsad: {error}"
+    set:                   "⊙ Maqsad belgilandi ({budget}-navbat byudjeti): {goal}\nMaqsad bajarilguncha, siz uni to'xtatguncha/tozalaguncha yoki byudjet tugaguncha ishlayman.\nBoshqaruv: /goal status · /goal pause · /goal resume · /goal clear"
+
+  help:
+    header:                "📖 **Hermes Buyruqlari**\n"
+    skill_header:          "\n⚡ **Ko'nikma buyruqlari** ({count} ta faol):"
+    more_use_commands:     "\n... va yana {count} ta. To'liq ro'yxat uchun `/commands` dan foydalaning."
+
+  insights:
+    invalid_days:          "Noto'g'ri --days qiymati: {value}"
+    error:                 "Tahlil yaratishda xato: {error}"
+
+  kanban:
+    error_prefix:          "⚠ kanban xatosi: {error}"
+    subscribed_suffix:     "(obuna bo'lindi — {task_id} tugagach yoki to'sib qolganda sizga xabar beriladi)"
+    truncated_suffix:      "… (qisqartirildi; to'liq chiqish uchun terminalda `hermes kanban …` dan foydalaning)"
+    no_output:             "(chiqish yo'q)"
+    wake:
+      completed:           "yakunlandi"
+      gave_up:             "to'xtatildi (qayta urinishlar tugadi)"
+      crashed:             "ishdan chiqdi (worker to'xtadi); dispetcher qayta urinadi"
+      timed_out:           "vaqt tugadi; dispetcher qayta urinadi"
+      blocked:             "to'sib qoldi; e'tibor talab qiladi"
+      review_requested:    "ko'rib chiqish uchun topshirildi; bajarilish tayyor"
+      changes_requested:   "ko'rib chiqishda o'zgartirish so'raldi (BLOCK); bajarilish tasdiqlanmagan"
+      block_loop_detected: "takroriy to'siqlardan so'ng triage'ga yo'naltirildi; qaror talab qiladi"
+      status_default:      "holat o'zgardi"
+      status_joiner:       ", "
+      message:             "[kanban] Vazifa {task_id} {status}.\nSarlavha: {title}\nMas'ul: @{assignee}\nBoard: {board}\n\nNatijani tekshiring yoki keyingi qadamni hal qiling."
+      handoff:             "Natija: {summary}"
+      review_detail:       "Ko'rib chiqish fikri: {reason}\nMavjud kartani va uning joriy ko'rib chiqish jarayonini tekshiring; ishni o'sha bajarish vazifasiga qaytaring. Bu BLOCK'ni tasdiqlash sifatida qabul qilmang va takroriy vazifa yaratmang."
+      guidance:            "Bu avtomatik vazifa-holati bildirishnomasi, vazifani qayta parchalash so'rovi emas. Yangi vazifalar yaratishdan oldin joriy boardni tekshiring; allaqachon mavjud vazifa yoki grafikalarni qayta yaratmang."
+
+  personality:
+    none_configured:       "`{path}/config.yaml` da shaxsiyatlar sozlanmagan"
+    header:                "🎭 **Mavjud Shaxsiyatlar**\n"
+    none_option:           "• `none` — (shaxsiyat qatlami yo'q)"
+    item:                  "• `{name}` — {preview}"
+    usage:                 "\nFoydalanish: `/personality <nomi>`"
+    save_failed:           "⚠️ Shaxsiyat o'zgarishini saqlab bo'lmadi: {error}"
+    cleared:               "🎭 Shaxsiyat tozalandi — asosiy agent xatti-harakati ishlatilmoqda.\n_(keyingi xabardan kuchga kiradi)_"
+    set_to:                "🎭 Shaxsiyat **{name}** ga o'rnatildi\n_(keyingi xabardan kuchga kiradi)_"
+    unknown:               "Noma'lum shaxsiyat: `{name}`\n\nMavjudlari: {available}"
+
+  profile:
+    header:                "👤 **Profil:** `{profile}`"
+    home:                  "📂 **Uy papkasi:** `{home}`"
+
+  reasoning:
+    level_default:             "o'rta (standart)"
+    level_disabled:            "yo'q (o'chirilgan)"
+    scope_session:             "sessiya darajasida"
+    scope_global:              "global sozlama"
+    status:                    "🧠 **Fikrlash Sozlamalari**\n\n**Daraja:** `{level}`\n**Doira:** {scope}\n**Ko'rsatish:** {display}\n\n_Foydalanish:_ `/reasoning <none|minimal|low|medium|high|xhigh|max|ultra|reset|show|hide> [--global]`"
+    display_on:                "yoqilgan ✓"
+    display_off:               "o'chirilgan"
+    display_set_on:            "🧠 ✓ Fikrlashni ko'rsatish: **YOQILGAN**\n**{platform}** da har javobdan oldin model fikrlashi ko'rsatiladi."
+    display_set_off:           "🧠 ✓ Fikrlashni ko'rsatish: **{platform}** uchun O'CHIRILGAN"
+    reset_global_unsupported:  "⚠️ `/reasoning reset --global` qo'llab-quvvatlanmaydi. Global standartni o'zgartirish uchun `/reasoning <daraja> --global` dan foydalaning."
+    reset_done:                "🧠 ✓ Sessiya fikrlash darajasi tozalandi; global sozlamaga qaytildi."
+    unknown_arg:               "⚠️ Noma'lum argument: `{arg}`\n\n**To'g'ri darajalar:** none, minimal, low, medium, high, xhigh, max, ultra\n**Ko'rsatish:** show, hide\n**Saqlash:** sessiyadan tashqari saqlash uchun `--global` qo'shing"
+    picker_title:              "🧠 **Fikrlash Sozlamalari**\n\n**Daraja:** `{level}`\n**Doira:** {scope}\n**Ko'rsatish:** {display}\n\nBirini tanlang:"
+    choice_none:               "none — fikrlashni o'chirish"
+    choice_reset:              "reset — sessiya darajasini tozalash"
+    choice_show:               "javoblarda fikrlashni ko'rsatish"
+    choice_hide:               "javoblardan fikrlashni yashirish"
+    set_global:                "🧠 ✓ Fikrlash darajasi `{effort}` ga o'rnatildi (sozlamalarga saqlandi)\n_(keyingi xabardan kuchga kiradi)_"
+    set_global_save_failed:    "🧠 ✓ Fikrlash darajasi `{effort}` ga o'rnatildi (faqat sessiya uchun — sozlamani saqlab bo'lmadi)\n_(keyingi xabardan kuchga kiradi)_"
+    set_session:               "🧠 ✓ Fikrlash darajasi `{effort}` ga o'rnatildi (faqat sessiya uchun — doimiy saqlash uchun `--global` qo'shing)\n_(keyingi xabardan kuchga kiradi)_"
+
+  reload_mcp:
+    cancelled:             "🟡 /reload-mcp bekor qilindi. MCP vositalari o'zgarishsiz qoldi."
+    always_followup:       "ℹ️ Keyingi `/reload-mcp` chaqiruvlari tasdiqlashsiz ishlaydi. config.yaml da `approvals.mcp_reload_confirm: true` orqali qayta yoqing."
+    confirm_prompt:         "⚠️ **/reload-mcp ni tasdiqlang**\n\nMCP serverlarni qayta yuklash shu sessiya uchun vositalar to'plamini qayta quradi va **provayder prompt keshini bekor qiladi** — keyingi xabar to'liq kirish tokenlarini qayta yuboradi. Uzun kontekstli yoki yuqori fikrlashli modellarda bu qimmatga tushishi mumkin.\n\nTanlang:\n• **Bir marta tasdiqlash** — hozir qayta yuklash\n• **Har doim tasdiqlash** — hozir qayta yuklash va bu so'rovni doimiy o'chirish\n• **Bekor qilish** — MCP vositalarini o'zgartirmasdan qoldirish\n\n_Matnli variant: `/approve`, `/always`, yoki `/cancel` deb javob bering._"
+    header:                "🔄 **MCP Serverlari Qayta Yuklandi**\n"
+    reconnected:           "♻️ Qayta ulandi: {names}"
+    added:                 "➕ Qo'shildi: {names}"
+    removed:               "➖ Olib tashlandi: {names}"
+    none_connected:        "Ulangan MCP serverlari yo'q."
+    tools_available:       "\n🔧 {servers} ta serverdan {tools} ta vosita mavjud"
+    failed:                "❌ MCP qayta yuklash amalga oshmadi: {error}"
+
+  reload_skills:
+    header:                "🔄 **Ko'nikmalar Qayta Yuklandi**\n"
+    no_new:                "Yangi ko'nikma topilmadi."
+    total:                 "\n📚 {count} ta ko'nikma mavjud"
+    added_header:          "➕ **Qo'shilgan Ko'nikmalar:**"
+    removed_header:        "➖ **Olib Tashlangan Ko'nikmalar:**"
+    item_with_desc:        "    - {name}: {desc}"
+    item_no_desc:          "    - {name}"
+    failed:                "❌ Ko'nikmalarni qayta yuklash amalga oshmadi: {error}"
+
+  reset:
+    header_default:        "✨ Sessiya tozalandi! Yangi suhbat boshlandi."
+    header_new:            "✨ Yangi suhbat boshlandi!"
+    header_titled:         "✨ Yangi suhbat boshlandi: {title}"
+    title_rejected:        "\n⚠️ Sarlavha rad etildi: {error}"
+    title_error_untitled:  "\n⚠️ {error} — sessiya sarlavhasiz boshlandi."
+    title_empty_untitled:  "\n⚠️ Tozalashdan so'ng sarlavha bo'sh qoldi — sessiya sarlavhasiz boshlandi."
+    tip:                   "\n✦ Maslahat: {tip}"
+
+  restart:
+    in_progress:           "⏳ Gateway qayta ishga tushirish jarayonida..."
+    restarting:            "♻ Gateway qayta ishga tushirilmoqda. 60 soniya ichida xabar kelmasa, konsoldan `hermes gateway restart` orqali qayta ishga tushiring."
+
+  resume:
+    db_unavailable:        "Sessiya bazasi mavjud emas."
+    parse_error:           "⚠️ `/resume` argumentlarini o'qib bo'lmadi: {error}.\nBo'shliq bor sarlavhalarni qo'shtirnoqqa oling, masalan: `/resume \"Loyiha A rejasi\"`."
+    matrix_no_named_sessions: "Ushbu Matrix xonasi uchun nomlangan sessiyalar topilmadi.\nJoriy xona sessiyasini nomlash uchun `/title Mening Sessiyam`, barcha Matrix sessiyalarini ko'rish uchun `/resume --all`, yoki xona chegarasidan ataylab o'tish uchun `/resume --cross-room <sessiya nomi>` dan foydalaning."
+    matrix_blocked_no_origin: "⚠️ Matrix /resume to'sildi: bu nomlangan sessiyada saqlangan xona manbasi yo'q, shuning uchun Hermes uni joriy xonada standart bo'yicha davom ettirmaydi. Xona chegarasidan ataylab o'tmoqchi bo'lsangiz, `/resume --cross-room {name}` dan foydalaning."
+    matrix_blocked_other_room: "⚠️ Matrix /resume to'sildi: bu sessiya boshqa Matrix xonasiga tegishli ({room}). Uni shu yerda davom ettirish uchun `/resume --cross-room {name}` dan foydalaning."
+    matrix_cross_room_success: "⚠️ Xonalararo davom ettirish: **{title}** Matrix **{room}** xonasi ichida davom ettirildi.\nBu xonadagi keyingi xabarlar `/reset` yoki boshqa `/resume` gacha o'sha transkriptdan foydalanadi.{msg_part}"
+    blocked_not_owner:     "⚠️ /resume to'sildi: '**{name}**' boshqa foydalanuvchi yoki chatga tegishli. Faqat shu chatdagi sessiyalarni davom ettirishingiz mumkin."
+    no_named_sessions:     "Nomlangan sessiyalar topilmadi.\nJoriy sessiyangizni nomlash uchun `/title Mening Sessiyam`, keyin unga qaytish uchun `/resume Mening Sessiyam` dan foydalaning."
+    all_requires_admin: "_Eslatma: `--all` (chatlararo ro'yxat) sozlangan administratorni talab qiladi; faqat shu chat sessiyalari ko'rsatilmoqda._"
+    list_header:           "📋 **Nomlangan Sessiyalar**\n"
+    list_item:             "• **{title}**{preview_part}"
+    list_item_numbered:    "{index}. **{title}**{preview_part}"
+    list_preview_suffix:   " — _{preview}_"
+    list_footer:           "\nFoydalanish: `/resume <sessiya nomi>`"
+    list_footer_numbered:  "\nFoydalanish: `/resume <sessiya nomi>` yoki `/resume <raqam>` (masalan, eng so'nggisi uchun `/resume 1`)"
+    list_failed:           "Sessiyalarni ro'yxatlab bo'lmadi: {error}"
+    out_of_range:          "{index} indeksi doiradan tashqarida.\nMavjud sessiyalarni ko'rish uchun argumentsiz `/resume` dan foydalaning."
+    not_found:             "'**{name}**' ga mos sessiya topilmadi.\nMavjud sessiyalarni ko'rish uchun argumentsiz `/resume` dan foydalaning."
+    already_on:            "📌 Allaqachon **{name}** sessiyasidasiz."
+    switch_failed:         "Sessiyani almashtirib bo'lmadi."
+    resumed_one:           "↻ **{title}** sessiyasi davom ettirildi ({count} ta xabar). Suhbat tiklandi."
+    resumed_many:          "↻ **{title}** sessiyasi davom ettirildi ({count} ta xabar). Suhbat tiklandi."
+    resumed_no_count:      "↻ **{title}** sessiyasi davom ettirildi. Suhbat tiklandi."
+
+  retry:
+    no_previous:           "Qayta urinish uchun oldingi xabar yo'q."
+
+  rollback:
+    not_enabled:           "Checkpoint'lar yoqilmagan.\nconfig.yaml da yoqing:\n```\ncheckpoints:\n  enabled: true\n```"
+    none_found:            "{cwd} uchun checkpoint topilmadi"
+    invalid_number:        "Noto'g'ri checkpoint raqami. 1-{max} oralig'idan foydalaning."
+    restored:              "✅ {hash} checkpoint'iga tiklandi: {reason}\nTiklashdan oldingi holat avtomatik saqlandi."
+    kept_user_edits:       "↷ Qo'lda kiritgan o'zgartirishlaringiz saqlab qolindi: {files}\nUlarni ham tiklash uchun /rollback <N> --all dan foydalaning."
+    kept_oversize:         "↷ Saqlab qolindi (checkpoint uchun juda katta, tiklash uchun nusxa yo'q): {files}"
+    failed_deletes:        "⚠️ Olib tashlab bo'lmadi (joyida qoldi): {files}"
+    restore_failed:        "❌ {error}"
+
+  diff:
+    not_enabled:           "Checkpoint'lar yoqilmagan, shuning uchun sessiya bazaviy holati yo'q.\nconfig.yaml da yoqing:\n```\ncheckpoints:\n  enabled: true\n```\nOddiy /diff baribir ishlaydi — u to'g'ridan-to'g'ri git'dan foydalanadi."
+    no_changes:            "O'zgarishlar yo'q."
+    failed:                "{error}"
+
+  set_home:
+    save_failed:           "Asosiy kanalni saqlab bo'lmadi: {error}"
+    success:               "✅ Asosiy kanal **{name}** ga o'rnatildi (ID: {chat_id}).\nCron vazifalari va platformalararo xabarlar shu yerga yetkaziladi."
+
+  context:
+    header:                "🧠 **Kontekst Oynasi**"
+    model:                 "Model: `{model}`"
+    window:                "Oyna: {total} token"
+    in_use:                "Ishlatilmoqda: {used} / {total} ({pct}%)"
+    bar:                   "{bar}"
+    headroom:              "Chegaragacha joy: {headroom} token"
+    threshold:             "Avtomatik siqish: {threshold} ({threshold_pct}%) — {to_go} qoldi"
+    over_threshold:        "⚠️ **Avtomatik siqish chegarasidan oshib ketdi ({threshold}, {threshold_pct}%)**"
+    compressions:          "Shu sessiyadagi siqishlar: {count}"
+    last_savings:          "So'nggi siqish bo'shatgan joy: kontekstning {savings}%"
+    totals_header:         "Sessiya jami (jami {calls} ta API chaqiruvi bo'yicha)"
+    totals_line:           "Kirish {input} · Chiqish {output} · Fikrlash {reasoning}"
+    total_billed:          "Jami hisoblangan: {total}"
+    throughput_note:       "_O'tkazuvchanlik, kontekst hajmi emas — har chaqiruv yuqoridagi oynani qayta yuboradi._"
+    estimated:             "Taxminiy kontekst: {messages} ta xabar bo'yicha ~{count} token"
+    detail_after_first:    "_(To'liq siqish va o'tkazuvchanlik statistikasi birinchi agent javobidan keyin mavjud bo'ladi)_"
+    no_data:               "Hali kontekst ma'lumoti yo'q. Sessiyani boshlash uchun xabar yuboring."
+
+  status:
+    header:                "📊 **Hermes Gateway Holati**"
+    matrix_scope_header:   "**Matrix doirasi:**"
+    matrix_scope_room:     "  xona: {room}"
+    matrix_scope_room_id:  "  xona_id: {room_id}"
+    matrix_scope_thread:   "  thread_id: {thread_id}"
+    matrix_scope_mode:     "  session_scope: {scope}"
+    matrix_scope_key:      "  session_key: {session_key}"
+    session_id:            "**Sessiya ID:** `{session_id}`"
+    title:                 "**Sarlavha:** {title}"
+    created:               "**Yaratildi:** {timestamp}"
+    last_activity:         "**So'nggi faollik:** {timestamp}"
+    model:                 "**Model:** `{model}`"
+    model_provider:        "**Model:** `{model}` ({provider})"
+    context:               "**Kontekst:** {used} / {total} ({pct}%)"
+    context_used:          "**Kontekst:** ~{used} token"
+    tokens:                "**Umumiy hisoblangan tokenlar:** {tokens} _(joriy kontekst hajmi emas; `/context` dan foydalaning)_"
+    agent_running:         "**Agent ishlamoqda:** {state}"
+    state_yes:             "Ha ⚡"
+    state_no:              "Yo'q"
+    queued:                "**Navbatdagi davomlar:** {count}"
+    platforms:             "**Ulangan platformalar:** {platforms}"
+
+  stop:
+    stopped_pending:       "⚡ To'xtatildi. Agent hali boshlamagan edi — bu sessiyani davom ettirishingiz mumkin."
+    stopped:               "⚡ To'xtatildi. Bu sessiyani davom ettirishingiz mumkin."
+    no_active:             "To'xtatish uchun faol vazifa yo'q."
+
+  title:
+    db_unavailable:        "Sessiya bazasi mavjud emas."
+    warn_prefix:           "⚠️ {error}"
+    empty_after_clean:     "⚠️ Tozalashdan so'ng sarlavha bo'sh qoldi. Iltimos, bosma belgilardan foydalaning."
+    set_to:                "✏️ Sessiya sarlavhasi o'rnatildi: **{title}**"
+    not_found:             "Sessiya bazada topilmadi."
+    current_with_title:    "📌 Sessiya: `{session_id}`\nSarlavha: **{title}**"
+    current_no_title:      "📌 Sessiya: `{session_id}`\nSarlavha o'rnatilmagan. Foydalanish: `/title Mening Sessiyam Nomi`"
+
+  topic:
+    not_telegram_dm:         "/topic buyrug'i faqat Telegram shaxsiy chatlarida mavjud."
+    no_session_db:           "Sessiya bazasi mavjud emas."
+    unauthorized:            "Sizga bu botda /topic dan foydalanishga ruxsat berilmagan."
+    restore_needs_topic:     "Sessiyani tiklash uchun avval Telegram mavzusini yarating yoki oching, keyin o'sha mavzu ichida /topic <sessiya-id> yuboring. Yangi mavzu yaratish uchun Barcha Xabarlarni oching va u yerga xabar yuboring."
+    topics_disabled:         "Telegram mavzulari bu bot uchun hali yoqilmagan.\n\nQanday yoqish kerak:\n1. @BotFather ni oching.\n2. Botingizni tanlang.\n3. Bot Settings → Threads Settings ni oching.\n4. Threaded Mode ni yoqing va foydalanuvchilarga yangi mavzu yaratishga ruxsat berilganiga ishonch hosil qiling.\n\nKeyin /topic ni qayta yuboring."
+    topics_user_disallowed:  "Telegram mavzulari yoqilgan, lekin foydalanuvchilarga mavzu yaratishga ruxsat berilmagan.\n\n@BotFather → botingizni tanlang → Bot Settings → Threads Settings ni oching, keyin 'Disallow users to create new threads' ni o'chiring.\n\nKeyin /topic ni qayta yuboring."
+    enable_failed:           "Telegram mavzu rejimini yoqib bo'lmadi: {error}"
+    bound_status:            "Bu mavzu quyidagiga ulangan:\nSessiya: {label}\nID: {session_id}\n\nBu mavzuni yangi sessiya bilan almashtirish uchun /new dan foydalaning.\nParallel ish uchun Barcha Xabarlarni oching va u yerga xabar yuboring."
+    thread_ready:            "Telegram ko'p-sessiyali mavzular yoqilgan.\n\nBu mavzu mustaqil Hermes sessiyasi sifatida ishlatiladi. Bu mavzuning joriy sessiyasini almashtirish uchun /new dan foydalaning. Parallel ish uchun Barcha Xabarlarni oching va u yerga xabar yuboring."
+    untitled_session:        "Sarlavhasiz sessiya"
+
+  undo:
+    nothing:               "Bekor qilish uchun hech narsa yo'q."
+    removed:               "↩️ {turns} ta navbat bekor qilindi ({count} ta xabar).\nZaxiraga saqlandi: \"{preview}\"\nYuqoridagi matnni nusxalab/tahrirlab, shu yerdan qayta so'rov sifatida yuboring."
+    invalid_count:         "Noto'g'ri son \"{arg}\" — /undo yoki /undo N dan foydalaning."
+
+  update:
+    platform_not_messaging:  "✗ /update faqat messaging platformalaridan mavjud. Terminalda `hermes update` ni ishga tushiring."
+    not_git_repo:            "✗ Git repozitoriyasi emas — yangilab bo'lmaydi."
+    hermes_cmd_not_found:    "✗ `hermes` buyrug'ini topib bo'lmadi. Hermes ishlamoqda, lekin yangilash buyrug'i PATH'da yoki joriy Python interpretatorida bajariladigan faylni topa olmadi. Terminalingizda `hermes update` ni qo'lda ishga tushirib ko'ring."
+    start_failed:            "✗ Yangilashni boshlab bo'lmadi: {error}"
+    starting:                "⚕ Hermes yangilanishi boshlanmoqda… Jarayonni shu yerda kuzataman."
+
+  usage:
+    rate_limits:              "⏱️ **Tezlik chegaralari:** {state}"
+    header_session:           "📊 **Sessiya Token Sarfi**"
+    label_model:              "Model: `{model}`"
+    label_input_tokens:       "Kirish tokenlari: {count}"
+    label_cache_read:         "Keshdan o'qish tokenlari: {count}"
+    label_cache_write:        "Keshga yozish tokenlari: {count}"
+    label_output_tokens:      "Chiqish tokenlari: {count}"
+    label_total:              "Jami: {count}"
+    label_api_calls:          "API chaqiruvlari: {count}"
+    label_cost:               "Narx: {prefix}${amount}"
+    label_cost_included:      "Narx: kiritilgan"
+    label_context:            "Kontekst: {used} / {total} ({pct}%)"
+    label_compressions:       "Siqishlar: {count}"
+    breakdown_header:         "🧩 **Kontekst taqsimoti** _(taxminiy)_"
+    breakdown_line:           "• {label}: ~{count} ({pct}%)"
+    breakdown_cat_system_prompt:        "Tizim prompti"
+    breakdown_cat_tool_definitions:     "Vosita ta'riflari"
+    breakdown_cat_rules:                "Qoidalar"
+    breakdown_cat_skills:               "Ko'nikmalar"
+    breakdown_cat_mcp:                  "MCP"
+    breakdown_cat_subagent_definitions: "Sub-agent ta'riflari"
+    breakdown_cat_memory:               "Xotira"
+    breakdown_cat_conversation:         "Suhbat"
+    header_session_info:      "📊 **Sessiya Ma'lumoti**"
+    label_messages:           "Xabarlar: {count}"
+    label_estimated_context:  "Taxminiy kontekst: ~{count} token"
+    detailed_after_first:     "_(Batafsil sarf ma'lumoti birinchi agent javobidan keyin mavjud bo'ladi)_"
+    no_data:                  "Bu sessiya uchun sarf ma'lumoti yo'q."
+    unknown_subcommand:       "Noma'lum /usage kichik buyrug'i: `{args}`. `/usage` yoki `/usage reset [--force]` ni sinab ko'ring."
+    reset_wrong_provider:     "Hisoblangan sarfni tozalash faqat openai-codex provayderida mavjud. Avval `/model` bilan almashtiring."
+
+  credits:
+    not_logged_in:            "Nous Portal'ga kirilmagan. Kredit balansingizni ko'rish va to'ldirish uchun tizimga kiring."
+
+  verbose:
+    not_enabled:           "`/verbose` buyrug'i messaging platformalari uchun yoqilmagan.\n\n`config.yaml` da yoqing:\n```yaml\ndisplay:\n  tool_progress_command: true\n```"
+    mode_off:              "⚙️ Vosita jarayoni: **O'CHIRILGAN** — hech qanday vosita faolligi ko'rsatilmaydi."
+    mode_new:              "⚙️ Vosita jarayoni: **YANGI** — vosita o'zgarganda ko'rsatiladi (ko'rinish uzunligi: `display.tool_preview_length`, standart 40)."
+    mode_all:              "⚙️ Vosita jarayoni: **BARCHASI** — har bir vosita chaqiruvi ko'rsatiladi (ko'rinish uzunligi: `display.tool_preview_length`, standart 40)."
+    mode_verbose:          "⚙️ Vosita jarayoni: **BATAFSIL** — har bir vosita chaqiruvi to'liq argumentlar bilan."
+    mode_log:              "⚙️ Vosita jarayoni: **JURNAL** — chatda ko'rsatilmaydi; vosita chaqiruvlari ~/.hermes/logs/tool_calls.log ga yoziladi."
+    saved_suffix:          "_(saqlandi **{platform}** uchun — keyingi xabardan kuchga kiradi)_"
+    save_failed:           "_(sozlamalarga saqlab bo'lmadi: {error})_"
+
+  voice:
+    enabled_voice_only:    "Ovozli rejim yoqildi.\nOvozli xabar yuborsangiz, ovoz bilan javob beraman.\nBarcha xabarlarga ovozli javob olish uchun /voice tts dan foydalaning."
+    disabled_text:         "Ovozli rejim o'chirildi. Faqat matnli javoblar."
+    tts_enabled:           "Avtomatik ovozlash yoqildi.\nBarcha javoblar ovozli xabarni o'z ichiga oladi."
+    status_mode:           "Ovozli rejim: {label}"
+    status_channel:        "Ovozli kanal: #{channel}"
+    status_participants:   "Ishtirokchilar: {count}"
+    status_member:         "  - {name}{status}"
+    speaking:              " (gapirmoqda)"
+    enabled_short:         "Ovozli rejim yoqildi."
+    disabled_short:        "Ovozli rejim o'chirildi."
+    label_off:             "O'chirilgan (faqat matn)"
+    label_voice_only:      "Yoqilgan (ovozli xabarga ovozli javob)"
+    label_all:             "TTS (barcha xabarlarga ovozli javob)"
+    help:                  "{toggle}\n\n**/voice qanday ishlaydi**\n• `/voice on` — ovozli xabar yuborganingizda ovozli javob\n• `/voice tts` — *har bir* xabarga ovozli javob\n• `/voice off` — faqat matnli javoblarga qaytish\n• `/voice status` — joriy rejimni ko'rsatish\n• `/voice` (argumentsiz) — yoqish/o'chirish orasida tezkor almashtirish{channels}"
+    help_channels:         "\n\n**Jonli ovozli kanallar (Discord)**\n• Avval ovozli kanalga qo'shiling, keyin `/voice channel` — men qo'shilaman, tinglayman va javoblarimni aytaman\n• `/voice leave` — ovozli kanaldan uzilish"
+
+  yolo:
+    disabled:                   "⚠️ YOLO rejimi bu sessiya uchun **O'CHIRILGAN** — xavfli buyruqlar tasdiqlashni talab qiladi."
+    enabled:                    "⚡ YOLO rejimi bu sessiya uchun **YOQILGAN** — barcha buyruqlar avtomatik tasdiqlanadi. Ehtiyot bo'ling."
+
+  shared:
+    session_db_unavailable:      "Sessiya bazasi mavjud emas."
+    session_db_unavailable_prefix: "Sessiya bazasi mavjud emas"
+    session_not_found:           "Sessiya bazada topilmadi."
+    warn_passthrough:            "⚠️ {error}"
